@@ -1,0 +1,31 @@
+/**
+ * Test 2 :
+ * Update button container so that it :
+ * - Fill the remaining space horizontally using flex
+ * - Stack vertically if the screen's width < 500px using flex
+ */
+
+.buttonContainer {
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-align: center;
+}
+#counter {
+  font-size: 6em;
+}
+button {
+  flex: 1;
+  min-height: 3em;
+  min-width: 8em;
+  margin: 0.25em;
+  font-size: 1em;
+  background-color: #09f;
+  border: 0;
+  border-radius: 1em;
+}
+button:hover {
+  opacity: 0.8;
+}
