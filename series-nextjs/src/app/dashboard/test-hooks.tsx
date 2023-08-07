@@ -1,3 +1,4 @@
+'use client'
 /**
  * Test 1 :
  * Update counter app to be able to counting every second

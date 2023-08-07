@@ -1,4 +1,3 @@
-'use client'
 import TestHook from "./test-hooks";
 
 // `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
