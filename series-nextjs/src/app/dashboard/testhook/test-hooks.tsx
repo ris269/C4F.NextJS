@@ -7,7 +7,7 @@
 import { useState, useRef, useEffect } from "react";
 import './test-hooks.css'
 
-export default function TestHook() {
+export default function TestHookComponent() {
   // update to state hook
   // let counter = 0;
   const [counter, setCounter] = useState(0);
@@ -50,7 +50,7 @@ export default function TestHook() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="TestHookApp">
       <div id="counter" data-testid="counter">
         {counter}
       </div>
