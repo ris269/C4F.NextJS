@@ -7,7 +7,7 @@
 
 .buttonContainer {
 }
-.App {
+.TestHookApp {
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
