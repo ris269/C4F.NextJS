@@ -7,9 +7,10 @@ export default function Dashboard() {
   return (
     <div>
       <ul>
-        <li className={x['red']}>
+        <li className={x["red"]}>
           <Link href={"/dashboard/stackoverflow"}>
-            <span className={y['red']}>StackOverflow</span>
+            StackOverflow
+            {/* <span className={y['red']}>StackOverflow</span> */}
           </Link>
         </li>
         <li>

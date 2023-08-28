@@ -9,14 +9,27 @@ function AppHeader() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <Link href={"/"} className="navbar-brand">
+            NEXTJS Series
+          </Link>
+          
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link href={"/dashboard/stackoverflow"} className='nav-link'>StackOverflow</Link>
-            <Link href={"/dashboard/facebook"} className='nav-link'>Facebook</Link>
-            <Link href={"/dashboard/youtube"} className='nav-link'>YouTube</Link>
-            <Link href={"/dashboard/testhook"} className='nav-link'>Test Hooks</Link>
+            <Link href={"/dashboard/stackoverflow"} className="nav-link">
+              StackOverflow
+            </Link>
+            <Link href={"/dashboard/facebook"} className="nav-link">
+              Facebook
+            </Link>
+            <Link href={"/dashboard/youtube"} className="nav-link">
+              YouTube
+            </Link>
+            <Link href={"/dashboard/testhook"} className="nav-link">
+              Test Hooks
+            </Link>
             <Nav.Link href="#link">Link</Nav.Link>
             {/* <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>

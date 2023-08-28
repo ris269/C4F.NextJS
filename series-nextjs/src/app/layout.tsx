@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container'
 import AppHeader from "@/components/app.header"
 import AppFooter from "@/components/app.footer";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
