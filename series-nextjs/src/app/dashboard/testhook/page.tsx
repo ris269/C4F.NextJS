@@ -1,3 +1,5 @@
+// 'use client'
+
 import React from "react";
 import TestHookComponent from "./test-hooks";
 
