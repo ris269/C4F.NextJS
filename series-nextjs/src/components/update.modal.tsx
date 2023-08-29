@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -8,16 +8,27 @@ import { toast } from 'react-toastify'
 import { mutate } from 'swr'
 
 interface IProps {
-  showModalCreate: boolean
-  setShowModalCreate: (value: boolean) => void
+  showModalUpdate: boolean
+  setShowModalUpdate: (value: boolean) => void
+  blog: IBlog | null
+  setBlog: (value: IBlog | null) => void
 }
 
-function CreateModal(props: IProps) {
-  const { showModalCreate, setShowModalCreate } = props
+function EditModal(props: IProps) {
+  const { showModalUpdate: showModalUpdate, setShowModalUpdate: setShowModalUpdate, blog, setBlog } = props
 
   const [title, setTitle] = useState<string>('')
   const [author, setAuthor] = useState<string>('')
   const [content, setContent] = useState<string>('')
+
+  useEffect(() => {
+    if (blog) {
+      setTitle(blog.title)
+      setAuthor(blog.author)
+      setContent(blog.content)
+    }
+  }, [blog])
+  
 
   const handleSubmit = () => {
     if (!title || !author || !content) {
@@ -25,8 +36,8 @@ function CreateModal(props: IProps) {
       return
     }
 
-    fetch('http://localhost:8000/blogs', {
-      method: 'POST',
+    fetch(`http://localhost:8000/blogs/${blog?.id}`, {
+      method: 'PUT',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -35,11 +46,11 @@ function CreateModal(props: IProps) {
     }).then((res) =>
       res.json().then((res) => {
         if (res) {
-          toast.success('Create new blog successfully!')
-          setShowModalCreate(false)
+          toast.success('Update blog successfully!')
+          setShowModalUpdate(false)
           mutate('http://localhost:8000/blogs')
         } else {
-          toast.error('Create new blog failed!')
+          toast.error('Update blog failed!')
         }
       })
     )
@@ -49,14 +60,15 @@ function CreateModal(props: IProps) {
     setTitle('')
     setAuthor('')
     setContent('')
-    setShowModalCreate(false)
+    setBlog(null)
+    setShowModalUpdate(false)
   }
 
   return (
     <>
       <Modal
-        show={showModalCreate}
-        onHide={() => setShowModalCreate(false)}
+        show={showModalUpdate}
+        onHide={() => setShowModalUpdate(false)}
         backdrop='static'
         keyboard={false}
         size='lg'
@@ -108,4 +120,4 @@ function CreateModal(props: IProps) {
   )
 }
 
-export default CreateModal
+export default EditModal
