@@ -1,12 +1,17 @@
 import Link from "next/link";
+import x from "@/styles/app.module.css";
+import y from "@/styles/test.module.css";
 
 // `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
 export default function Dashboard() {
   return (
     <div>
       <ul>
-        <li>
-          <Link href={"/dashboard/stackoverflow"}>StackOverflow</Link>
+        <li className={x["red"]}>
+          <Link href={"/dashboard/stackoverflow"}>
+            StackOverflow
+            {/* <span className={y['red']}>StackOverflow</span> */}
+          </Link>
         </li>
         <li>
           <a href="/dashboard/facebook">Facebook</a>
